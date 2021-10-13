@@ -1,11 +1,12 @@
 package assoc_desp;
 
-import java.util.Date;
+import java.time.LocalDate;
+//import java.util.Date;
 
 public class Socio extends Pessoa {
     static int ult_num_socio = 0;
     int numero_socio;
-    Date data_inscricao = new Date();
+    LocalDate data_inscricao = LocalDate.now();
     //String data_insc;
 
     public Socio(Pessoa p){

@@ -1,19 +1,20 @@
 package assoc_desp;
 
-import java.util.Date;
+import java.time.LocalDate;
+//import java.util.Date;
 
 public class Pessoa {
     String nome;
     String apelido;
     String nif;
-    Date data_nascimento;
+    LocalDate data_nascimento;
     //String data_nas;
 
     public Pessoa(String nome, String apelido, String nif, Integer ano, Integer mes, Integer dia){
         this.nome = nome;
         this.apelido = apelido;
         this.nif = nif;
-        this.data_nascimento = new Date();
+        this.data_nascimento = LocalDate.of(ano, mes, dia);
         // this.data_nascimento.setYear(ano);
         // this.data_nascimento.setMonth(mes);
         // this.data_nascimento.setDate(dia);
@@ -48,7 +49,7 @@ public class Pessoa {
     // }
 
     public String toString() {
-        return "Nome: " + nome + " "+ apelido + " NIF: " + nif + " Data nascimento: " + data_nascimento.toString();
+        return "Nome: " + nome + " "+ apelido + " NIF: " + nif + " Data nascimento: " + data_nascimento;
     }
 
 }
