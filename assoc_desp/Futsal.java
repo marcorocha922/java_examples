@@ -6,7 +6,7 @@ public class Futsal extends Modalidade{
     String tipo;
 
     public Futsal(String posicao, String tipo) {
-        super.nome = "Futsal";
+        super.nome_modalidade = "Futsal";
         super.coletivo = true;
         this.posicao = posicao;
         this.tipo = tipo;
@@ -27,7 +27,8 @@ public class Futsal extends Modalidade{
     public void setPosicao(String posicao) {
         this.posicao = posicao;
     }
-    
 
-    
+    public String toString(){
+        return "Posição: " + posicao + " Pé dominante: "+ tipo;
+    }
 }

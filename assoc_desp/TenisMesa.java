@@ -5,7 +5,7 @@ public class TenisMesa extends Modalidade {
     int esquerda, direita;
 
     public TenisMesa(String tipo, int esquerda, int direita) {
-        super.nome = "Ténis de Mesa";
+        super.nome_modalidade = "Ténis de Mesa";
         super.coletivo = false;
         this.tipo = tipo;
         this.esquerda = esquerda;
@@ -34,6 +34,10 @@ public class TenisMesa extends Modalidade {
 
     public void setDireita(int direita) {
         this.direita = direita;
+    }
+
+    public String toString(){
+        return "Mão: " + tipo + " Esquerda: " + esquerda + " Direita: " + direita;
     }
 
 }

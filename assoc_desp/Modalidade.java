@@ -1,11 +1,11 @@
 package assoc_desp;
 
 public class Modalidade {
-    String nome;
+    String nome_modalidade;
     Boolean coletivo;
 
-    Modalidade(String nome, Boolean coletivo){
-        this.nome = nome;
+    Modalidade(String nome_modalidade, Boolean coletivo){
+        this.nome_modalidade = nome_modalidade;
         this.coletivo = coletivo;
     }
 
@@ -14,11 +14,11 @@ public class Modalidade {
     }
 
     public String getNome() {
-        return nome;
+        return nome_modalidade;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome_modalidade) {
+        this.nome_modalidade = nome_modalidade;
     }
 
 }

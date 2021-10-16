@@ -1,0 +1,259 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayCopyDemo",
+            "request": "launch",
+            "mainClass": "Arrays.ArrayCopyDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch ArrayDemo",
+            "request": "launch",
+            "mainClass": "Arrays.ArrayDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch ComparisonDemo",
+            "request": "launch",
+            "mainClass": "Arrays.ComparisonDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConditionalDemo1",
+            "request": "launch",
+            "mainClass": "Arrays.ConditionalDemo1",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch InstanceofDemo",
+            "request": "launch",
+            "mainClass": "Arrays.InstanceofDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch PrePostDemo",
+            "request": "launch",
+            "mainClass": "Arrays.PrePostDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch BicycleDemo",
+            "request": "launch",
+            "mainClass": "Bicycle_example.BicycleDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch CriarFeriado",
+            "request": "launch",
+            "mainClass": "Calendario.CriarFeriado",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch impares",
+            "request": "launch",
+            "mainClass": "Exercicios.impares",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch impares_intervalo",
+            "request": "launch",
+            "mainClass": "Exercicios.impares_intervalo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch media_notas",
+            "request": "launch",
+            "mainClass": "Exercicios.media_notas",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch meses_array",
+            "request": "launch",
+            "mainClass": "Exercicios.meses_array",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch meses_switch",
+            "request": "launch",
+            "mainClass": "Exercicios.meses_switch",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch novasubrotina",
+            "request": "launch",
+            "mainClass": "Exercicios.novasubrotina",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch novo_meses_ano",
+            "request": "launch",
+            "mainClass": "Exercicios.novo_meses_ano",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch subrotina",
+            "request": "launch",
+            "mainClass": "Exercicios.subrotina",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch tabuada",
+            "request": "launch",
+            "mainClass": "Exercicios.tabuada",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch teste1",
+            "request": "launch",
+            "mainClass": "Pasta_teste.teste1",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch Clube",
+            "request": "launch",
+            "mainClass": "assoc_desp.Clube",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch GestaoConta",
+            "request": "launch",
+            "mainClass": "banco.GestaoConta",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch GestaoConta(1)",
+            "request": "launch",
+            "mainClass": "banco_v2.GestaoConta",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestClube",
+            "request": "launch",
+            "mainClass": "clube.TestClube",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch VerFilmes",
+            "request": "launch",
+            "mainClass": "filmes.VerFilmes",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch GUI",
+            "request": "launch",
+            "mainClass": "gui_practice.GUI",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch SwingExample",
+            "request": "launch",
+            "mainClass": "gui_practice.SwingExample",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch SwingListenerDemo",
+            "request": "launch",
+            "mainClass": "gui_v2.SwingListenerDemo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch UsarHeranca",
+            "request": "launch",
+            "mainClass": "heranca.UsarHeranca",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch impares_intervalo(1)",
+            "request": "launch",
+            "mainClass": "joao.exercicios.impares_intervalo",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch media_notas(1)",
+            "request": "launch",
+            "mainClass": "joao.exercicios.media_notas",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch meses_ano",
+            "request": "launch",
+            "mainClass": "joao.exercicios.meses_ano",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch subrotina(1)",
+            "request": "launch",
+            "mainClass": "joao.exercicios.subrotina",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch tabuada(1)",
+            "request": "launch",
+            "mainClass": "joao.exercicios.tabuada",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch Biblioteca",
+            "request": "launch",
+            "mainClass": "livros_e_autores.Biblioteca",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch TesteAutor",
+            "request": "launch",
+            "mainClass": "livros_e_autores.TesteAutor",
+            "projectName": "java-examples_5205b3f9"
+        },
+        {
+            "type": "java",
+            "name": "Launch TesteLivro",
+            "request": "launch",
+            "mainClass": "livros_e_autores.TesteLivro",
+            "projectName": "java-examples_5205b3f9"
+        }
+    ]
+}
