@@ -7,8 +7,8 @@ public class Corrida extends Modalidade {
     String piso;
 
     public Corrida(String distancia, String piso){
-        super.nome_modalidade = "Corrida";
-        super.coletivo = false;
+        this.nome_modalidade = "Corrida";
+        this.coletivo = false;
         this.distancias.add(distancia);
         this.piso = piso;
     }
@@ -17,6 +17,7 @@ public class Corrida extends Modalidade {
         return distancias;
     }
 
+    @Override
     public void addDistancias(String distancia) {
         this.distancias.add(distancia);
     }
@@ -30,6 +31,6 @@ public class Corrida extends Modalidade {
     }
 
     public String toString(){
-        return "Distâncias: " + distancias + " Piso: "  + piso;
+        return super.toString() + " Distâncias: " + distancias + " Piso: "  + piso;
     }
 }

@@ -4,7 +4,7 @@ public class Modalidade {
     String nome_modalidade;
     Boolean coletivo;
 
-    Modalidade(String nome_modalidade, Boolean coletivo){
+    public Modalidade(String nome_modalidade, Boolean coletivo){
         this.nome_modalidade = nome_modalidade;
         this.coletivo = coletivo;
     }
@@ -21,4 +21,12 @@ public class Modalidade {
         this.nome_modalidade = nome_modalidade;
     }
 
+    public void addDistancias(String distancia) {
+    }
+
+    public String toString() {
+        return "\nModalidade : " + nome_modalidade;
+    }
+
+    
 }

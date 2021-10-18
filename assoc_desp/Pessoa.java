@@ -6,6 +6,7 @@ public class Pessoa {
     String nome;
     String apelido;
     String nif;
+    //Variável LocalDate para as datas. Pela pesquisa que fiz, percebi que este era o melhor tipo de variável, e mais actual.
     LocalDate data_nascimento;
 
     public Pessoa(String nome, String apelido, String nif, Integer ano, Integer mes, Integer dia){
@@ -30,12 +31,23 @@ public class Pessoa {
         return apelido;
     }
 
+    //Método que poderá ser usado no futuro, numa melhoria do programa
     public void setApelido(String apelido) {
         this.apelido = apelido;
     }
 
+    public int getNumero_socio() {
+        int i = 0;
+        return i;
+    }
+
     public String getNif() {
         return nif;
+    }
+
+    public Modalidade getModalidade() {
+        Modalidade modalidade = new Modalidade();
+        return modalidade;
     }
 
     public String toString() {

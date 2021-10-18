@@ -8,20 +8,19 @@ public class Clube {
         Scanner teclado = new Scanner(System.in);
 
         char op, rep, mod;
-        // ArrayLists, para criação de sócios e de atletas
-        ArrayList<Socio> socios = new ArrayList<Socio>();
-        ArrayList<Atleta> atletas = new ArrayList<Atleta>();
+        // ArrayList pessoas, permite controlar todos os elementos através de uma só base de dados
+        ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
 
-        // Criação de 3 sócios, e posterior criação de 2 atletas, 1 deles de um sócio já
-        // criado, e tirando esse sócio do ArrayList socios
-        socios.add(new Socio(new Pessoa("Marco", "Rocha", "123464545", 1992, 6, 9)));
-        socios.add(new Socio(new Pessoa("André", "Alves", "987654231", 1994, 9, 6)));
-        socios.add(new Socio(new Pessoa("Marco", "Alves", "545698745", 1993, 10, 15)));
+        // Criação de 3 sócios, e posterior criação de 2 atletas, 1 deles de um sócio criado
+        
+        pessoas.add(new Socio(new Pessoa("Marco", "Rocha", "123464545", 1992, 6, 9)));
+        pessoas.add(new Socio(new Pessoa("André", "Alves", "987654231", 1994, 9, 6)));
+        pessoas.add(new Socio(new Pessoa("Marco", "Alves", "545698745", 1993, 10, 15)));
 
-        atletas.add(new Atleta(new Socio(new Pessoa("Cristiano", "Ronaldo", "7777777777", 1980, 7, 7)),
+        pessoas.add(new Atleta(new Socio(new Pessoa("Cristiano", "Ronaldo", "7777777777", 1980, 7, 7)),
                 new Futsal("Pivot", "Destro")));
-        atletas.add(new Atleta(socios.get(Socio.findIndexSocio(socios, 1)), new Futsal("Fixo", "Ambidestro")));
-        socios.remove(Socio.findIndexSocio(socios, 1));
+        
+        pessoas.set(0, new Atleta(new Socio((Socio)pessoas.get(0)) , new Futsal("Fixo", "Ambidestro")));
 
         // inicio do menu principal
         do {
@@ -67,7 +66,7 @@ public class Clube {
                                     dia = teclado.nextInt();
                                 } while (dia < 1 || dia > 31);
 
-                                socios.add(new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)));
+                                pessoas.add(new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)));
                                 break;
                             }
                             case '2': {
@@ -77,29 +76,40 @@ public class Clube {
                                 } while (op != '1' && op != '2');
 
                                 do {
-                                    System.out
-                                            .println("\nModalidade: [1] - Futsal, [2] - Ténis de mesa, [3] - Corrida: ");
+                                    System.out.println(
+                                            "\nModalidade: [1] - Futsal, [2] - Ténis de mesa, [3] - Corrida: ");
                                     mod = teclado.next().toUpperCase().charAt(0);
                                 } while (op != '1' && op != '2' && op != '3');
 
                                 switch (op) {
                                     case '1': {
                                         int num_socio_escolhido = 0;
-                                        int maior_num_socio = 0;
+                                        ArrayList <Integer> nums_socio = new ArrayList<Integer>();
+                                        Boolean found = false;
 
-                                        do {
-                                            for (Socio soc : socios) {
-                                                System.out.println(soc.getNome() + " " + soc.getApelido() + " : "
-                                                        + soc.getNumero_socio());
-                                                if (soc.getNumero_socio() > maior_num_socio) {
-                                                    maior_num_socio = soc.getNumero_socio();
+                                        do{
+
+                                            for(Pessoa pes : pessoas){
+                                                if( !(pes instanceof Atleta)){
+                                                    System.out.println(pes.getNome() + " " + pes.getApelido() + " : "
+                                                    + pes.getNumero_socio());
+                                                    nums_socio.add(pes.getNumero_socio());
                                                 }
                                             }
 
                                             System.out.println("\nInsira o número de sócio pretendido: ");
                                             num_socio_escolhido = teclado.nextInt();
 
-                                        } while (num_socio_escolhido <= 0 || num_socio_escolhido > maior_num_socio);
+                                            for(Integer i : nums_socio){
+                                                if(i == num_socio_escolhido){
+                                                    found = true;
+                                                }
+                                            }
+
+                                            if(found == false){
+                                                System.out.println("\nNúmero de sócio inválido. Escolha novamente\n");
+                                            }
+                                        } while (found == false);
 
                                         switch (mod) {
                                             case '1': {
@@ -111,10 +121,7 @@ public class Clube {
                                                 System.out.println("\nPé dominante: ");
                                                 tipo = teclado.next();
 
-                                                atletas.add(new Atleta(
-                                                        socios.get(Socio.findIndexSocio(socios, num_socio_escolhido)),
-                                                        new Futsal(posicao, tipo)));
-                                                socios.remove(Socio.findIndexSocio(socios, num_socio_escolhido));
+                                                pessoas.set(Socio.findIndexPessoa(pessoas, num_socio_escolhido), new Atleta(new Socio((Socio)pessoas.get(Socio.findIndexPessoa(pessoas, num_socio_escolhido))), new Futsal(posicao, tipo)));
 
                                                 break;
                                             }
@@ -135,10 +142,7 @@ public class Clube {
                                                     dir = teclado.nextInt();
                                                 } while (dir < 1 || dir > 10);
 
-                                                atletas.add(new Atleta(
-                                                        socios.get(Socio.findIndexSocio(socios, num_socio_escolhido)),
-                                                        new TenisMesa(tipo, esq, dir)));
-                                                socios.remove(Socio.findIndexSocio(socios, num_socio_escolhido));
+                                                pessoas.set(Socio.findIndexPessoa(pessoas, num_socio_escolhido), new Atleta(new Socio((Socio)pessoas.get(Socio.findIndexPessoa(pessoas, num_socio_escolhido))), new TenisMesa(tipo, esq, dir)));
 
                                                 break;
                                             }
@@ -148,14 +152,11 @@ public class Clube {
                                                 System.out.println("\nQual a distância: ");
                                                 distancia = teclado.next();
 
-                                                System.out
-                                                        .println("\nQual o tipo de piso (corta-mato, estrada, pista): ");
+                                                System.out.println(
+                                                        "\nQual o tipo de piso (corta-mato, estrada, pista): ");
                                                 piso = teclado.next();
 
-                                                atletas.add(new Atleta(
-                                                        socios.get(Socio.findIndexSocio(socios, num_socio_escolhido)),
-                                                        new Corrida(distancia, piso)));
-                                                socios.remove(Socio.findIndexSocio(socios, num_socio_escolhido));
+                                                pessoas.set(Socio.findIndexPessoa(pessoas, num_socio_escolhido), new Atleta(new Socio((Socio)pessoas.get(Socio.findIndexPessoa(pessoas, num_socio_escolhido))), new Corrida(distancia, piso)));
 
                                                 char add;
                                                 do {
@@ -165,7 +166,9 @@ public class Clube {
                                                     if (add == '1') {
                                                         System.out.println("\nQual a distância a adicionar: ");
                                                         String dist = teclado.next();
-                                                        atletas.get(atletas.size() - 1).corrida.addDistancias(dist);
+
+                                                        pessoas.get(Socio.findIndexPessoa(pessoas, num_socio_escolhido)).getModalidade().addDistancias(dist);
+
                                                     }
                                                 } while (add == '1');
                                                 break;
@@ -210,9 +213,7 @@ public class Clube {
                                                 System.out.println("\nPé dominante: ");
                                                 tipo = teclado.next();
 
-                                                atletas.add(new Atleta(
-                                                        new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)),
-                                                        new Futsal(posicao, tipo)));
+                                                pessoas.add(new Atleta(new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)), new Futsal(posicao, tipo)));
 
                                                 break;
                                             }
@@ -253,9 +254,7 @@ public class Clube {
                                                 System.out.println("\nSkill de direita (1-10): ");
                                                 dir = teclado.nextInt();
 
-                                                atletas.add(new Atleta(
-                                                        new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)),
-                                                        new TenisMesa(tipo, esq, dir)));
+                                                pessoas.add(new Atleta(new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)), new TenisMesa(tipo, esq, dir)));
 
                                                 break;
                                             }
@@ -290,13 +289,11 @@ public class Clube {
                                                 System.out.println("\nQual a distância: ");
                                                 distancia = teclado.next();
 
-                                                System.out
-                                                        .println("\nQual o tipo de piso (corta-mato, estrada, pista): ");
+                                                System.out.println(
+                                                        "\nQual o tipo de piso (corta-mato, estrada, pista): ");
                                                 piso = teclado.next();
 
-                                                atletas.add(new Atleta(
-                                                        new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)),
-                                                        new Corrida(distancia, piso)));
+                                                pessoas.add(new Atleta(new Socio(new Pessoa(nome, apelido, nif, ano, mes, dia)), new Corrida(distancia, piso)));
 
                                                 char add;
                                                 do {
@@ -306,7 +303,8 @@ public class Clube {
                                                     if (add == '1') {
                                                         System.out.println("\nQual a distância a adicionar: ");
                                                         String dist = teclado.next();
-                                                        atletas.get(atletas.size() - 1).corrida.addDistancias(dist);
+
+                                                        pessoas.get(pessoas.size() - 1).getModalidade().addDistancias(dist);
                                                     }
                                                 } while (add == '1');
 
@@ -336,30 +334,33 @@ public class Clube {
                         op = teclado.next().toUpperCase().charAt(0);
                     } while (op != '1' && op != '2' && op != '3');
 
-                    if (op == '1') {
-                        for (Socio soc : socios) {
-                            System.out.println(soc + "\n");
-                        }
-                        for (Atleta atl : atletas) {
-                            System.out.println(atl.getInfoSocio() + "\n");
-                        }
-                    } else if (op == '2') {
-                        for (Atleta atl : atletas) {
-                            System.out.println(atl);
-                            if(atl.modalidade_praticada == "Futsal"){
-                                System.out.println(atl.futsal.toString());
-                            }else if( atl.modalidade_praticada == "Ténis de Mesa"){
-                                System.out.println(atl.tenisMesa.toString());
-                            }else if( atl.modalidade_praticada == "Corrida"){
-                                System.out.println(atl.corrida.toString());
+                    switch(op){
+                        case '1' : {
+                            for(Pessoa pes : pessoas){
+                                System.out.println(pes + "\n");
                             }
-                            System.out.println("\n");
+                            break;
                         }
-                    } else if (op == '3') {
-                        for (Socio soc : socios) {
-                            System.out.println(soc + "\n");
+
+                        case '2' : {
+                            for(Pessoa pes : pessoas){
+                                if(pes instanceof Atleta){
+                                    System.out.println(pes+ "\n");
+                                }
+                            }
+                            break;
+                        }
+
+                        case '3' : {
+                            for(Pessoa pes : pessoas){
+                                if( !(pes instanceof Atleta)){
+                                    System.out.println(pes+ "\n");
+                                }
+                            }
+                            break;
                         }
                     }
+
                     break;
                 }
             }
